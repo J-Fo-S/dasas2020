@@ -30,32 +30,32 @@ void main()
     double fs = 16000.0;  // sampling frequency
     double t = 1.0 / fs;
     double fo = 1000.0;
-    double m = N / 2.0;
+    int m = N / 5;
     //double tv = (N-1)*t;  // time vector 
 
      
     // Generate 1 second of audio data
     for (n=0 ; n<N ; ++n) 
     {
-        if (n <= (int)m && n >= (int)-m) 
+        if (n-(N/2) <= (int)m && n-(N/2) >= (int)-m) 
             {
-            G[n] = cos((M_PI/2.0)*(n/m));
-            G[n] = G[n]*G[n];
-            //G[n] = 1.0;
-            if (G[n] != 0) printf("%f", G[n]);
+                G[n] = cos((M_PI/2.0)*((n-(N/2))/(double)m));
+                G[n] = G[n]*G[n];
+                //G[n] = 1.0;
             }
         else 
             {
-            G[n] = 0;
+                G[n] = 0;
             }
-        Y[n] = 0.5 * G[n-(int)m] * sin(2.0*M_PI*fo*n*t);
+        // center G over middle of file
+        Y[n] = 0.5 * G[n] * sin(2.0*M_PI*fo*n*t);
         buf[n] = Y[n] * 16383.0;
     }
      
     // Pipe the audio data to ffmpeg, which writes it to a wav file in cwd
     FILE *pipeout;
     //pipeout = popen(strcat(strcat(strcpy(s_out_b, "ffmpeg -y -f s16le -ar 16000 -ac 1 -i - "), cwd), "/1a.wav"), "w");
-    pipeout = popen("ffmpeg -y -f s16le -ar 16000 -ac 1 -i - 1a_sin.wav", "w");
+    pipeout = popen("ffmpeg -y -f s16le -ar 16000 -ac 1 -i - 1a.wav", "w");
     fwrite(buf, 2, N, pipeout);
     pclose(pipeout);
 }
