@@ -38,6 +38,240 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-58",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 250.0, 3.0, 150.0, 20.0 ],
+					"style" : "",
+					"text" : "convolution"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"domainlabel" : "normalized frequency",
+					"id" : "obj-57",
+					"margins" : [ 8.0, 8.0, 20.0, 50.0 ],
+					"maxclass" : "plot~",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"numpoints" : 512,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1008.0, 364.0, 301.0, 275.0 ],
+					"rangelabel" : "magnitude (db)",
+					"subplots" : [ 						{
+							"color" : [ 0.4, 0.4, 0.75, 1.0 ],
+							"thickness" : 1.5,
+							"point_style" : "none",
+							"line_style" : "linear",
+							"number_style" : "none",
+							"filter" : "atodb",
+							"domain_start" : 0.0,
+							"domain_end" : 1.0,
+							"domain_style" : "linear",
+							"domain_markers" : [ 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 ],
+							"domain_labels" : [ 0.0, "  0", 0.1, "0.1", 0.2, "0.2", 0.3, "0.3", 0.4, "0.4", 0.5, "0.5", 0.6, "0.6", 0.7, "0.7", 0.8, "0.8", 0.9, "0.9", 1.0, " 1" ],
+							"range_start" : -108.0,
+							"range_end" : 6.0,
+							"range_style" : "linear",
+							"range_markers" : [ 6.0, 0.0, -12.0, -24.0, -36.0, -48.0, -60.0, -72.0, -84.0, -96.0, -108.0 ],
+							"range_labels" : [ 6.0, "+6", 0.0, "0", -12.0, "-12", -24.0, "-24", -36.0, "-36", -48.0, "-48", -60.0, "-60", -72.0, "-72", -84.0, "-84", -96.0, "-96", -108.0, "-108" ],
+							"origin_x" : 0.0,
+							"origin_y" : 0.0
+						}
+ ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-56",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 1435.0, 76.0, 150.0, 20.0 ],
+					"style" : "",
+					"text" : "in and output buffers"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"hidden" : 1,
+					"id" : "obj-33",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1508.0, 109.0, 77.0, 23.0 ],
+					"style" : "",
+					"text" : "loadmess 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-35",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 6,
+					"outlettype" : [ "", "", "", "", "", "" ],
+					"patching_rect" : [ 1008.0, 324.0, 95.0, 23.0 ],
+					"style" : "",
+					"text" : "filterdetail"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-46",
+					"maxclass" : "newobj",
+					"numinlets" : 3,
+					"numoutlets" : 1,
+					"outlettype" : [ "dictionary" ],
+					"patching_rect" : [ 1008.0, 284.0, 485.0, 23.0 ],
+					"style" : "",
+					"text" : "dict.pack schema: filterdesign numerator: denominator: 1 0 0 0 0 0 0 0 @triggers 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"color" : [ 0.239216, 0.643137, 0.709804, 1.0 ],
+					"fontname" : "Arial",
+					"fontsize" : 13.0,
+					"id" : "obj-47",
+					"maxclass" : "newobj",
+					"numinlets" : 8,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1163.0, 239.0, 418.0, 23.0 ],
+					"style" : "",
+					"text" : "join 8 @triggers -1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"format" : 6,
+					"id" : "obj-49",
+					"maxclass" : "flonum",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 1505.0, 209.0, 57.0, 22.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"format" : 6,
+					"id" : "obj-50",
+					"maxclass" : "flonum",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 1448.0, 209.0, 57.0, 22.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"format" : 6,
+					"id" : "obj-51",
+					"maxclass" : "flonum",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 1391.0, 209.0, 57.0, 22.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"format" : 6,
+					"id" : "obj-52",
+					"maxclass" : "flonum",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 1334.0, 209.0, 57.0, 22.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"format" : 6,
+					"id" : "obj-53",
+					"maxclass" : "flonum",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 1277.0, 209.0, 57.0, 22.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"format" : 6,
+					"id" : "obj-54",
+					"maxclass" : "flonum",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 1220.0, 209.0, 57.0, 22.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Arial",
+					"fontsize" : 12.0,
+					"format" : 6,
+					"id" : "obj-55",
+					"maxclass" : "flonum",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 1163.0, 209.0, 57.0, 22.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-38",
 					"maxclass" : "number",
 					"maximum" : 2,
@@ -183,7 +417,7 @@
 							}
 , 							{
 								"box" : 								{
-									"code" : "// the impulse response:\r\n// the input history to convolve with:\r\nParam p, a;\r\nHistory y_1;\r\n// store new input in memory (i.e. set max):\r\nDelay input(128);\r\nDelay input_2(64);\r\ninput.write(in1);\r\ninput_2.write(in2);\r\n\r\n// a variable to accumulate the sum of the delay vector:\r\nresult = 0; \r\nlen = p;\r\nave = 1/p;\r\n// for each point in the delay line:\r\nfor (m=len; m<2*len; m+=1) {\r\n\r\n\tfor (n=m-len; n<m; n+=1) {\r\n\t\tx = input.read(m);\r\n\t\th = input_2.read(n);\r\n\t\t// accumulate:\r\n\t\tresult += h*x;\r\n\t\t//result *=0.5;\r\n\t\t}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        \r\n}\r\n// divide out\r\nout = result * ave;",
+									"code" : "// the impulse response:\r\n// the input history to convolve with:\r\nParam p, a;\r\nHistory y_1;\r\n// store new input in memory (i.e. set max):\r\nDelay input(128);\r\nDelay input_2(64);\r\ninput.write(in1);\r\ninput_2.write(in2);\r\n\r\n// a variable to accumulate the sum of the delay vector:\r\nresult = 0; \r\nlen = p;\r\nave = 1/p;\r\n// for each point in the delay line:\r\nfor (m=len; m<2*len; m+=1) {\r\n\r\n\tfor (n=m; n>m-len; n-=1) {\r\n\t\tx = input.read(m);\r\n\t\th = input_2.read(n);\r\n\t\t// accumulate:\r\n\t\tresult += h*x;\r\n\t\t//result *=0.5;\r\n\t\t}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        \r\n}\r\n// divide out\r\nout = result * ave;",
 									"fontface" : 0,
 									"fontname" : "Arial",
 									"fontsize" : 12.0,
@@ -1518,9 +1752,102 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-49", 0 ],
+					"hidden" : 1,
+					"order" : 0,
+					"source" : [ "obj-33", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-50", 0 ],
+					"hidden" : 1,
+					"order" : 1,
+					"source" : [ "obj-33", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-51", 0 ],
+					"hidden" : 1,
+					"order" : 2,
+					"source" : [ "obj-33", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-52", 0 ],
+					"hidden" : 1,
+					"order" : 3,
+					"source" : [ "obj-33", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-53", 0 ],
+					"hidden" : 1,
+					"order" : 4,
+					"source" : [ "obj-33", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-54", 0 ],
+					"hidden" : 1,
+					"order" : 5,
+					"source" : [ "obj-33", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-55", 0 ],
+					"hidden" : 1,
+					"order" : 6,
+					"source" : [ "obj-33", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-57", 0 ],
+					"source" : [ "obj-35", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-32", 0 ],
 					"midpoints" : [ 218.5, 225.0, 237.0, 225.0, 237.0, 237.0, 330.0, 237.0, 330.0, 210.0, 259.5, 210.0 ],
 					"source" : [ "obj-38", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-35", 0 ],
+					"source" : [ "obj-46", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"color" : [ 0.239216, 0.643137, 0.709804, 1.0 ],
+					"destination" : [ "obj-46", 1 ],
+					"source" : [ "obj-47", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"color" : [ 0.239216, 0.643137, 0.709804, 1.0 ],
+					"destination" : [ "obj-47", 6 ],
+					"source" : [ "obj-49", 0 ]
 				}
 
 			}
@@ -1539,6 +1866,54 @@
 					"midpoints" : [ 259.5, 333.0, 259.5, 333.0 ],
 					"order" : 1,
 					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"color" : [ 0.239216, 0.643137, 0.709804, 1.0 ],
+					"destination" : [ "obj-47", 5 ],
+					"source" : [ "obj-50", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"color" : [ 0.239216, 0.643137, 0.709804, 1.0 ],
+					"destination" : [ "obj-47", 4 ],
+					"source" : [ "obj-51", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"color" : [ 0.239216, 0.643137, 0.709804, 1.0 ],
+					"destination" : [ "obj-47", 3 ],
+					"source" : [ "obj-52", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"color" : [ 0.239216, 0.643137, 0.709804, 1.0 ],
+					"destination" : [ "obj-47", 2 ],
+					"source" : [ "obj-53", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"color" : [ 0.239216, 0.643137, 0.709804, 1.0 ],
+					"destination" : [ "obj-47", 1 ],
+					"source" : [ "obj-54", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"color" : [ 0.239216, 0.643137, 0.709804, 1.0 ],
+					"destination" : [ "obj-47", 0 ],
+					"source" : [ "obj-55", 0 ]
 				}
 
 			}
