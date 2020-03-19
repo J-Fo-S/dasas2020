@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 1840.0, 235.0, 427.0, 568.0 ],
+		"rect" : [ 575.0, 235.0, 919.0, 568.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -293,7 +293,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 101.0, 191.5, 106.0, 60.0 ],
+					"patching_rect" : [ 101.0, 191.5, 106.0, 62.0 ],
 					"style" : "",
 					"text" : "4. select convolution \n1 h(1, p)\n2 h (y-m, p)",
 					"textcolor" : [ 0.462745, 0.470588, 0.490196, 1.0 ]
@@ -321,7 +321,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 496.0, 37.0, 149.0, 33.0 ],
+					"patching_rect" : [ 496.0, 37.0, 149.0, 34.0 ],
 					"style" : "",
 					"text" : "3. set samples to convolve (cpu intensive)",
 					"textcolor" : [ 0.462745, 0.470588, 0.490196, 1.0 ]
@@ -336,7 +336,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 273.0, 48.0, 129.0, 33.0 ],
+					"patching_rect" : [ 273.0, 48.0, 129.0, 34.0 ],
 					"style" : "",
 					"text" : "2. set deviation for Gaussian noise",
 					"textcolor" : [ 0.462745, 0.470588, 0.490196, 1.0 ]
@@ -374,7 +374,7 @@
 							"modernui" : 1
 						}
 ,
-						"rect" : [ 590.0, 246.0, 600.0, 504.0 ],
+						"rect" : [ 78.0, 197.0, 600.0, 504.0 ],
 						"editing_bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
@@ -417,7 +417,7 @@
 							}
 , 							{
 								"box" : 								{
-									"code" : "// the impulse response:\r\n// the input history to convolve with:\r\nParam p, a;\r\nHistory y_1;\r\n// store new input in memory (i.e. set max):\r\nDelay input(128);\r\nDelay input_2(64);\r\ninput.write(in1);\r\ninput_2.write(in2);\r\n\r\n// a variable to accumulate the sum of the delay vector:\r\nresult = 0; \r\nlen = p;\r\nave = 1/p;\r\n// for each point in the delay line:\r\nfor (m=len; m<2*len; m+=1) {\r\n\r\n\tfor (n=2*len; n>m-len; n-=1) {\r\n\t\tx = input.read(m);\r\n\t\th = input_2.read(n);\r\n\t\t// accumulate:\r\n\t\tresult += h*x;\r\n\t\t//result *=0.5;\r\n\t\t}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        \r\n}\r\n// divide out\r\nout = result * ave;",
+									"code" : "// the impulse response:\r\n// the input history to convolve with:\r\nParam p, a;\r\nHistory y_1;\r\n// store new input in memory (i.e. set max):\r\nDelay input(128);\r\nDelay input_2(64);\r\ninput.write(in1);\r\ninput_2.write(in2);\r\n\r\n// a variable to accumulate the sum of the delay vector:\r\nresult = 0; \r\nlen = p;\r\nave = 1/p;\r\n// for each point in the delay line:\r\nfor (m=len/2; m<2*len/2; m+=1) {\r\n\r\n\tfor (n=2*len; n>2*m-len-1; n-=1) {\r\n\t\tx = input.read(m);\r\n\t\th = input_2.read(n);\r\n\t\t// accumulate:\r\n\t\tresult += h*x;\r\n\t\t//result *=0.5;\r\n\t\t}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        \r\n}\r\n// divide out\r\nout = result * ave;",
 									"fontface" : 0,
 									"fontname" : "Arial",
 									"fontsize" : 12.0,
@@ -532,7 +532,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 101.0, 64.0, 106.0, 33.0 ],
+					"patching_rect" : [ 101.0, 64.0, 106.0, 34.0 ],
 					"style" : "",
 					"text" : "standard deviation"
 				}
@@ -573,7 +573,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 101.0, 114.5, 147.0, 47.0 ],
+					"patching_rect" : [ 101.0, 114.5, 147.0, 48.0 ],
 					"style" : "",
 					"text" : "Farnell's Gaussian transform (DOUBLE CLICK TO LOOK INSIDE)"
 				}
@@ -728,7 +728,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 136.0, 319.0, 106.0, 33.0 ],
+					"patching_rect" : [ 136.0, 319.0, 106.0, 34.0 ],
 					"style" : "",
 					"text" : "no click limiter (squasher)"
 				}
@@ -765,7 +765,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 136.0, 253.5, 106.0, 60.0 ],
+					"patching_rect" : [ 136.0, 253.5, 106.0, 62.0 ],
 					"style" : "",
 					"text" : "filter code (DOUBLE CLICK TO LOOK INSIDE)"
 				}
@@ -1539,7 +1539,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 506.0, 168.0, 50.0, 22.0 ],
 					"style" : "",
-					"text" : "8"
+					"text" : "64"
 				}
 
 			}
